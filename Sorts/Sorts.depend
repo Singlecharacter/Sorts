@@ -1,3 +1,6 @@
 # depslib dependency file v1.0
-1412208178 source:c:\users\conor\documents\github\sorts\sorts\main.cpp
+1412357311 source:c:\users\conor\documents\github\sorts\sorts\main.cpp
+	<cstdlib>
+	<ctime>
+	<iostream>
 
