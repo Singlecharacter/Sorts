@@ -12,6 +12,10 @@ public:
     ~Heap();
 
     void heapify(int[], int);
+    void add(int);
+    int extractMin();
+    int peekMin();
+    void deleteMin();
 
     void print();
 

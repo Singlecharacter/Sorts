@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include <vector>
 
 #include "heap.h"
 
@@ -15,12 +16,13 @@ void shellSort(int[], int);
 void quickSort(int[], int, int);
 void mergeSort(int[], int);
 void heapSort(int[], int);
+void bucketSort(int[], int, int, int);
 
 int main()
 {
     srand(time(NULL));
 
-    int testSize = 10;
+    int testSize = 100000;
 
     int test[testSize];
 
@@ -78,12 +80,30 @@ int main()
     init_array(test,testSize);
     std::cout << "Pre merge sort: ";
     std::cout << check_array(test,testSize);
-    //print_array(test,testSize);
     std::cout << std::endl;
     mergeSort(test,testSize);
     std::cout << "Post merge sort: " ;
     std::cout << check_array(test,testSize);
-    //print_array(test,testSize);
+    std::cout << std::endl;
+
+    //Heap sort testing
+    init_array(test,testSize);
+    std::cout << "Pre heap sort: ";
+    std::cout << check_array(test,testSize);
+    std::cout << std::endl;
+    heapSort(test,testSize);
+    std::cout << "Post heap sort: " ;
+    std::cout << check_array(test,testSize);
+    std::cout << std::endl;
+
+    //Bucket sort testing
+    init_array(test,testSize);
+    std::cout << "Pre bucket sort: ";
+    std::cout << check_array(test,testSize);
+    std::cout << std::endl;
+    bucketSort(test,testSize, 100, 10000);
+    std::cout << "Post bucket sort: " ;
+    std::cout << check_array(test,testSize);
     std::cout << std::endl;
 
     return 0;
@@ -347,4 +367,20 @@ void mergeSort(int ary[], int sizeOfAry)
             }
         }
     }
+}
+
+void heapSort(int ary[], int sizeOfAry)
+{
+    Heap h;
+    h.heapify(ary, sizeOfAry);
+
+    for(int i = 0; i < sizeOfAry; i++)
+    {
+        ary[i] = h.extractMin();
+    }
+}
+
+void bucketSort(int ary[], int sizeOfAry, int bucketSize, int highVal)
+{
+
 }

@@ -1,6 +1,14 @@
 # depslib dependency file v1.0
-1412357311 source:c:\users\conor\documents\github\sorts\sorts\main.cpp
+1412572694 source:c:\users\conor\documents\github\sorts\sorts\main.cpp
 	<cstdlib>
 	<ctime>
 	<iostream>
+	"heap.h"
+
+1412455581 c:\users\conor\documents\github\sorts\sorts\heap.h
+	<iostream>
+	<vector>
+
+1412572323 source:c:\users\conor\documents\github\sorts\sorts\heap.cpp
+	"heap.h"
 
