@@ -22,7 +22,7 @@ int main()
 {
     srand(time(NULL));
 
-    int testSize = 100000;
+    int testSize = 10000;
 
     int test[testSize];
 
@@ -382,5 +382,40 @@ void heapSort(int ary[], int sizeOfAry)
 
 void bucketSort(int ary[], int sizeOfAry, int bucketSize, int highVal)
 {
+    int bucketLow = 0;
+    int bucketHigh = bucketSize;
+    std::vector<int> copyVector;
+    while(bucketHigh <= highVal)
+    {
+        std::vector<int> bucket;
 
+        for(int i = 0; i < sizeOfAry; i++)
+        {
+            if(ary[i] >= bucketLow && ary[i] < bucketHigh)
+            {
+                bucket.push_back(ary[i]);
+            }
+        }
+
+        int bucketAry[bucket.size()];
+        for(int i = 0; i < bucket.size(); i++)
+        {
+            bucketAry[i] = bucket[i];
+        }
+
+        quickSort(bucketAry,0,bucket.size()-1);
+
+        for(int i = 0; i < bucket.size(); i++)
+        {
+            copyVector.push_back(bucketAry[i]);
+        }
+
+        bucketLow += bucketSize;
+        bucketHigh += bucketSize;
+    }
+
+    for(int i = 0; i < sizeOfAry; i++)
+    {
+        ary[i] = copyVector[i];
+    }
 }
